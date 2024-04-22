@@ -13,6 +13,10 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/blogs', blogRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to my Blog API")
+});
+
 // Catch-All Route
 app.all('*', (req, res) => {
   res.status(404).json({ message: "Not found" });
